@@ -19,36 +19,36 @@ if is_windows_10():
 else:
     print("Older than Windows 10")
 
-#физическая память
+#ГґГЁГ§ГЁГ·ГҐГ±ГЄГ Гї ГЇГ Г¬ГїГІГј
 ram = psutil.virtual_memory()
 print("RAM: ", byte_to_mb(ram.available), "/", byte_to_mb(ram.total))
 print("Memory Load: ", ram.percent, "%")
 
-#виртуальная память
+#ГўГЁГ°ГІГіГ Г«ГјГ­Г Гї ГЇГ Г¬ГїГІГј
 virtual_memory = psutil.swap_memory()
 print("Pagefile: ", byte_to_mb(virtual_memory.used), "/", byte_to_mb(virtual_memory.total))
 print("Memory Load: ", virtual_memory.percent, "%")
 
-#имя устройства
+#ГЁГ¬Гї ГіГ±ГІГ°Г®Г©Г±ГІГўГ 
 host = socket.gethostname()
 print("Computer Name: ", host)
 
-#имя пользователя
+#ГЁГ¬Гї ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гї
 user = getpass.getuser()
 print("User: ", user)
 
-#физические ядра
+#ГґГЁГ§ГЁГ·ГҐГ±ГЄГЁГҐ ГїГ¤Г°Г 
 physical_cores = psutil.cpu_count(logical=False)
 print("Physical cores: ", physical_cores)
 
-#логические ядра
+#Г«Г®ГЈГЁГ·ГҐГ±ГЄГЁГҐ ГїГ¤Г°Г 
 logical_cores = psutil.cpu_count(logical=True)
 print("Logical cores: ", logical_cores)
 
-#архитектура
+#Г Г°ГµГЁГІГҐГЄГІГіГ°Г 
 print("Architecture: ", platform.machine())
 
-#диски
+#Г¤ГЁГ±ГЄГЁ
 print("Drives:")
 
 for i in psutil.disk_partitions():
