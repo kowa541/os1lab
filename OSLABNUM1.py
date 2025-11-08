@@ -19,36 +19,28 @@ if is_windows_10():
 else:
     print("Older than Windows 10")
 
-#ôèçè÷åñêàÿ ïàìÿòü
 ram = psutil.virtual_memory()
 print("RAM: ", byte_to_mb(ram.available), "/", byte_to_mb(ram.total))
 print("Memory Load: ", ram.percent, "%")
 
-#âèðòóàëüíàÿ ïàìÿòü
 virtual_memory = psutil.swap_memory()
 print("Pagefile: ", byte_to_mb(virtual_memory.used), "/", byte_to_mb(virtual_memory.total))
 print("Memory Load: ", virtual_memory.percent, "%")
 
-#èìÿ óñòðîéñòâà
 host = socket.gethostname()
 print("Computer Name: ", host)
 
-#èìÿ ïîëüçîâàòåëÿ
 user = getpass.getuser()
 print("User: ", user)
 
-#ôèçè÷åñêèå ÿäðà
 physical_cores = psutil.cpu_count(logical=False)
 print("Physical cores: ", physical_cores)
 
-#ëîãè÷åñêèå ÿäðà
 logical_cores = psutil.cpu_count(logical=True)
 print("Logical cores: ", logical_cores)
 
-#àðõèòåêòóðà
 print("Architecture: ", platform.machine())
 
-#äèñêè
 print("Drives:")
 
 for i in psutil.disk_partitions():
@@ -64,3 +56,4 @@ for i in psutil.disk_partitions():
         
     except PermissionError:
         print(device, "unavailable")
+
